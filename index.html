@@ -1,0 +1,181 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="css/style.css">
+    <!-- <link rel="stylesheet" href="multiselect/css.css"> -->
+    <title>Calendar</title>
+</head>
+<body>
+    <div class="calendar">
+        <div class="conteiner">
+            <div class="calendar__title">
+                <span class="title-name">Calendar</span>
+                <div class="calendar__title-input">
+                    <select class="title__select select" name="Members" >
+                        <option value="All members">All members</option>
+                        <option value="Mari">Mari</option>
+                        <option value="Pete">Pete</option>
+                        <option value="John">John</option>
+                        <option value="Anna">Anna</option>
+                        <option value="Mark">Mark</option>
+                    </select>
+                    <a href="#popup" class="title-input-button select">New event +</a>
+                </div>
+            </div>
+            <div class="calendar__body">
+                <table class="calendar__table">
+                    <tr>
+                        <th>Time</th>
+                        <th>Mon</th>
+                        <th>Tue</th>
+                        <th>Wed</th>
+                        <th>Thu</th>
+                        <th>Fri</th>
+                    </tr>
+                    <tr>
+                        <td class="calendar__time">10:00</td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                    </tr>
+                    <tr>
+                        <td class="calendar__time">11:00</td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                    </tr>
+                    <tr>
+                        <td class="calendar__time">12:00</td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                    </tr>
+                    <tr>
+                        <td class="calendar__time">13:00</td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                    </tr>
+                    <tr>
+                        <td class="calendar__time">14:00</td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                    </tr>
+                    <tr>
+                        <td class="calendar__time">15:00</td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                    </tr>
+                    <tr>
+                        <td class="calendar__time">16:00</td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                    </tr>
+                    <tr>
+                        <td class="calendar__time">17:00</td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                    </tr>
+                    <tr>
+                        <td class="calendar__time">18:00</td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                    </tr>
+                </table>
+            </div>
+        </div>
+    </div>
+    <div class="popup" id='popup'>
+        <div class="popup__content">
+            <div class="popup__choise">
+                <div class="popup__label">
+                    <span>Name of the event:</span>
+                    <span>Participants:</span>
+                    <span>Day:</span>
+                    <span>Time:</span>
+                </div>
+                <div class="popap__select">
+                    <input type="text" class="popup__select_name select-style" placeholder="Event name">
+                    <div class="wrap select-style">
+                        <div class="check">
+                            <span class="check__out">Select participants</span>
+                            <img src="img/pngwing.png" alt="" class="check_img"> 
+                        </div>
+                        <div class="checkselect">
+                            <label><input type="checkbox" name="brands[]" value="1">Mari</label>
+                            <label><input type="checkbox" name="brands[]" value="2">Pete</label>
+                            <label><input type="checkbox" name="brands[]" value="3">John</label>
+                            <label><input type="checkbox" name="brands[]" value="4">Anna</label>
+                            <label><input type="checkbox" name="brands[]" value="5">Mark</label>
+                        </div>
+                    </div>
+                    <select name="" id="" class="popup__select_day select-style">
+                        <option value="0">Choose the day</option>
+                        <option value="1">Monday</option>
+                        <option value="2">Tuesday</option>
+                        <option value="3">Wednesday</option>
+                        <option value="4">Thuesday</option>
+                        <option value="5">Friday</option>
+                    </select>
+                    <select name="" id="" class="popup__select_time select-style">
+                        <option value="0" >Choose the time</option>
+                        <option value="1" >10:00</option>
+                        <option value="2" >11:00</option>
+                        <option value="3" >12:00</option>
+                        <option value="4" >13:00</option>
+                        <option value="5" >14:00</option>
+                        <option value="6" >15:00</option>
+                        <option value="7" >16:00</option>
+                        <option value="8" >17:00</option>
+                        <option value="9" >18:00</option>
+                    </select>
+                </div>
+            </div>
+            <div class="popup__button">
+                <button class="popup__cancel btn-style">Cancel</button>
+                <button class="popup__create btn-style">Create</button>
+            </div>
+            <a href="#" class="popup__close cross-btn">X</a>
+        </div>
+    </div>
+    <div class="error">
+        <span></span>
+        <a href="#" class="error__close cross-btn">X</a>
+    </div>
+    <div class="popup-del">
+        <div class="popup-del__message">
+            Are you shure you want to delete <span class="this-event-name"></span> event?
+        </div>
+        <div class="popup-del__button">
+            <button id="btn-no" class="btn-style">No</button>
+            <button id="btn-yes" class="btn-style">Yes</button>
+        </div>
+    </div>
+    <script src="js/script.js"></script>
+</body>
+</html>

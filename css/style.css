@@ -1,0 +1,396 @@
+*{padding:0;margin:0;border:0;}
+*,*:before,*:after{-moz-box-sizing:border-box;-webkit-box-sizing:border-box;box-sizing:border-box;}
+:focus,:active{outline:none;}
+a:focus,a:active{outline:none;}
+nav,footer,header,aside{display:block;}
+html,body{height:100%;width:100%;font-size:100%;line-height:1;font-size:14px;-ms-text-size-adjust:100%;-moz-text-size-adjust:100%;-webkit-text-size-adjust:100%;}
+input,button,textarea{font-family:inherit;}
+input::-ms-clear{display:none;}
+button{cursor:pointer;}
+button::-moz-focus-inner{padding:0;border:0;}
+a,a:visited{text-decoration:none;}
+a:hover{text-decoration:none;}
+ul li{list-style:none;}
+img{vertical-align:top;}
+h1,h2,h3,h4,h5,h6{font-size:inherit;font-weight:inherit;}
+
+@import url('https://fonts.googleapis.com/css2?family=Roboto+Mono:wght@300&display=swap');
+a {
+    color: black;
+}
+body {
+    font-family: 'Roboto Mono', monospace;
+    
+}
+
+.calendar {
+    width: 100%;
+}
+.conteiner {
+    margin: 0px auto;
+    min-width: 960px;
+    width: 80%;
+    min-height: 500px;
+    height: 100vh;
+}
+.calendar__title {
+    display: flex;
+    justify-content: space-between;
+    font-size: 36px;
+    padding-top: 20px;
+}
+.title-name {
+    text-transform: uppercase;
+    background: linear-gradient(45deg, #0B2349 33%, #0D61BC 66%, #8AA9D6);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    color: #0B2349;
+}
+.calendar__title-input {
+    margin-bottom: 10px;
+    font-size: 30px;
+}  
+.title__select {
+    color: rgb(48, 54, 59);
+    font-size: 30px;
+    border:1px solid rgb(37, 35, 35);
+    border-radius: 10px;
+    font-family: 'Roboto Mono', monospace;
+    background: linear-gradient(180deg, rgb(87, 171, 240), rgb(188, 224, 236));
+    box-shadow: inset -.5px -.5px 0 .5px rgb(130, 155, 170),
+                inset .5px .5px 0 .5px rgb(130, 155, 170);
+    
+}  
+.select:hover {
+    background: linear-gradient(180deg, rgb(166, 208, 243),  rgb(244, 247, 248));
+}
+.select:active {
+    background: linear-gradient(0deg, rgb(87, 171, 240),  rgb(188, 224, 236));
+    /* box-shadow: .5px .5px 0 .5px rgb(130, 155, 170); */
+    box-shadow:  -1px -1px 0 1px rgb(130, 155, 170),
+                 1px 1px 0 1px rgb(130, 155, 170);
+}
+.title-input-button {
+    color: rgb(48, 54, 59);
+    display: inline-block;
+    padding: 4px 9px;
+    margin-right: 10px;
+    border: 1px solid rgb(37, 35, 35);
+    border-radius: 10px;
+    background: linear-gradient(180deg, rgb(87, 171, 240), rgb(188, 224, 236));
+    box-shadow: .5px .5px 0 .5px rgb(130, 155, 170);
+    
+}
+
+.calendar__body {
+    width: 100%;
+    height: 80%;
+}
+table{
+    width: 100%;
+    height: 100%;
+    border-collapse: collapse;
+    color: rgb(50, 54, 56);
+    
+}
+tr > th {
+    background-color: rgb(190, 225, 255);
+    font-size: 28px;
+}
+td, th {
+    width: 16%;
+    border: 1px solid rgb(71, 69, 69);
+    text-align: center;
+}
+
+.calendar__time {
+    text-align: center;
+    font-size: 24px;
+    background-color: rgb(190, 225, 255);
+}
+/* ---------------Multiselect------------------------- */
+.text {
+    margin-top: 20px;
+    width: 400px;
+    height: 200px; 
+}
+
+.wrap {
+    width: 300px;
+    height: 40px;
+    position: relative;
+    box-sizing: border-box;
+    margin-top: 10px;
+    font-size: 20px;
+}
+
+.check {
+    width: 100%;
+    height: inherit;
+    font-size: 20px;
+    border: 1px solid black;
+    position: relative;
+    overflow: hidden;
+}
+.check img {
+    position: absolute;
+    width: 12px;
+    height: 12px;
+    top: 40%;
+    right: 3px;
+    bottom: auto;
+    z-index: 10;
+
+}
+.checkselect {
+    display: none;
+    width: 100%;
+    position: absolute;
+    flex-direction: column;
+    border: 1px solid black;
+    background-color: #fff;
+    overflow-y: scroll;
+    overflow-x: hidden;
+    
+}
+.show {
+    display: flex;
+}
+.check__out {
+    display: inline-block;
+    position: absolute;
+    top: 0;
+    left: 5px;
+    height: 98%;
+    width: 83%;
+    overflow: hidden;
+    border: none;
+    white-space: nowrap;
+    line-height: 36px;
+    font-size: 20px;
+    z-index: 20;
+}  
+
+/* ---------------Popup------------------------- */
+
+.popup {
+    width: 100%;
+    height: 100%;
+    background-color: rgba(8, 8, 8, 0.8);
+    display: flex;
+    opacity: 0;
+    visibility: hidden;
+    align-items: center;
+    justify-content: center;
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: 2;
+}
+.popup__content {
+    box-shadow: -20px 20px 0 -17px #eee,
+            20px -20px 0 -17px #eee,
+            20px 20px 0 -20px #1baff3d3,
+            0 0 0 2px #1baff3d3;
+    position: relative;
+    max-width: 800px;
+    background-color: #fff;
+    z-index: 4;
+}
+
+.cross-btn:hover {
+    color: rgb(109, 107, 107);
+}
+.popup__choise {
+    display: flex;
+    padding-top: 50px;
+}
+.popup__label {
+    display: flex;
+    width: 300px;
+    justify-content: flex-start;
+    flex-direction: column;
+    padding-left: 15px;
+}
+.popup__label span {
+    font-size: 30px;
+    display: inline-flex;
+    white-space: nowrap;
+    overflow: hidden;
+    width: auto;
+    line-height: 38px;
+    padding-top: 12px;
+}
+.popap__select {
+    display: flex;
+    width: 500px;
+    flex-direction: column;
+    
+}
+.popap__select select, input[type='text']{
+    width: 300px;
+    height: 40px;
+    font-size: 20px;
+    border: 1px solid black ;
+    margin-top: 10px;
+    font-family: 'Roboto Mono', monospace;
+}
+.popup__button {
+    display: flex;
+    
+    justify-content: flex-end;
+    padding-top: 70px;
+    padding-bottom: 10px;
+}
+.popup__button button {
+    width: 100px;
+    height: 40px;
+    border: 1px solid black;
+    border-radius: 5px;
+    margin-right: 20px;
+    background: linear-gradient(180deg, rgb(196, 200, 201), rgb(229, 232, 233));
+    box-shadow: .5px .5px 0 .5px rgb(193, 198, 201);
+}
+.popup__close {
+    position: absolute;
+    top: 10px;
+    right: 15px;
+    text-decoration: none;
+    font-size: 24px;
+    font-weight: 700;
+    font-family: monospace;
+}
+.popup__show {
+    visibility: visible;
+    opacity: 1;
+}
+.select-style:hover{
+    box-shadow: 1px 1px 0 1px rgb(193, 198, 201);
+} 
+
+/* ------------Error----------------- */
+
+
+
+.error {
+    display:flex;
+    position: fixed;
+    top: 0;
+    right: 0;
+    visibility: hidden;
+    opacity: 0;
+    background-color: rgba(240, 143, 143, 0.8);
+    width: 100%;
+    height: 50px;
+    z-index: 1000;
+}
+
+.error__show {
+    visibility: visible;
+    opacity: 1;
+    z-index: 1000;
+}
+
+.error > a {
+    position: absolute;
+    top: 25%;
+    right: 20px;
+    font-size: 24px;
+    font-weight: 900;
+    font-family: monospace;
+    color: red;
+}
+
+.error > span {
+    display: inline-block;
+    width: 100%;
+    height: 100%;
+    font-size: 24px;
+    font-family: monospace;
+    line-height: 48px;
+    padding-left: 20px;
+    color: rgb(238, 51, 51);
+}
+
+/* ---------Mark--------- */
+
+.event-mark {
+    display: flex;
+    width: 100%;
+    height: 100%;
+    font-family: monospace;
+    background-color: rgba(0, 128, 0, .6);
+    position: relative;
+    opacity: 0;
+    visibility: hidden;
+}
+.event-text {
+    font-size: 18px;
+    display: table-cell;
+    display: inline-flex;
+    align-items: center;
+    height: 100%;
+    width: 80%;
+    padding-left: 10px; 
+    overflow: hidden;
+}
+.event-del {
+    font-size: 20px;
+    position: absolute;
+    top: 30%;
+    right: 15px;
+}
+
+.event-del:hover {
+    cursor: pointer;
+    color: rgb(109, 107, 107);
+}
+
+.btn-style {
+    background: linear-gradient(180deg, rgb(196, 200, 201), rgb(229, 232, 233));
+    box-shadow: .5px .5px 0 .5px rgb(193, 198, 201);
+}
+.btn-style:hover {
+    background: linear-gradient(180deg, rgb(210, 213, 214), rgb(229, 232, 233));
+}
+.btn-style:active {
+    background: linear-gradient(0deg, rgb(196, 200, 201), rgb(229, 232, 233));
+    box-shadow:  -.5px -.5px 0 .5px rgb(130, 155, 170),
+                 .5px .5px 0 .5px rgb(130, 155, 170);
+}
+
+/*-------------Popup-del-------------------*/
+.popup-del {
+    width: 400px;
+    height: 200px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, .25);
+    border-radius: 5px;
+    box-shadow: 1px 1px 0 2px grey;
+    background: #ffffff;
+    position: absolute;
+    top: 35%;
+    left: 35%;
+    visibility: hidden;
+    opacity: 0;
+}
+.popup-del__message {
+    text-align: center;
+    font-size: 24px;
+    height: 70%;
+}
+.popup-del__button {
+    display: flex;
+    justify-content: space-around;
+}
+
+.popup-del__button button {
+    width: 100px;
+    height: 40px;
+    border: 1px solid rgb(78, 78, 78);
+    border-radius: 5px;
+}
+
+.showEvent {
+    visibility: visible;
+    opacity: 1;
+}
